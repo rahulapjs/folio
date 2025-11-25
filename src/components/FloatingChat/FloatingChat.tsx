@@ -72,8 +72,8 @@ const FloatingChat: React.FC = () => {
         if (!input.trim()) return;
 
         const userQuestionOrKey = input;
-        setInput(''); 
-        
+        setInput('');
+
         const userMsg: Message = {
             id: Date.now().toString(),
             text: userQuestionOrKey,
@@ -82,13 +82,14 @@ const FloatingChat: React.FC = () => {
         };
         setMessages(prev => [...prev, userMsg]);
         scrollToBottom();
+        setApiKey(sessionStorage.getItem("geminiKey") || "")
 
         if (awaitingApiKey) {
             const keyAttempt = userQuestionOrKey.trim();
-            setAwaitingApiKey(false); 
+            setAwaitingApiKey(false);
 
-            const questionToRun = pendingQuestion; 
-            setPendingQuestion(null); 
+            const questionToRun = pendingQuestion;
+            setPendingQuestion(null);
 
             setMessages(prev => [
                 ...prev,
@@ -99,15 +100,19 @@ const FloatingChat: React.FC = () => {
                     timestamp: new Date(),
                 }
             ]);
-            
-            scrollToBottom(); 
-            
+
+            scrollToBottom();
+
             let valid = false;
             if (questionToRun) {
                 try {
                     const response = await runRAG(keyAttempt, questionToRun);
+
+                    if (response?.text?.includes("Please check your API key")) {
+                        return
+                    }
                     valid = true;
-                    
+
                     sessionStorage.setItem("geminiKey", keyAttempt);
                     setApiKey(keyAttempt);
 
@@ -117,7 +122,7 @@ const FloatingChat: React.FC = () => {
                         sender: "ai",
                         timestamp: new Date(),
                     };
-                    
+
                     const answerMessage: Message = {
                         id: Date.now().toString(),
                         text: response.text,
@@ -132,11 +137,11 @@ const FloatingChat: React.FC = () => {
                     console.error("API Key verification via RAG failed:", err);
                 }
             }
-            
+
             if (!valid) {
                 setAwaitingApiKey(true);
 
-                if (questionToRun) setPendingQuestion(questionToRun); 
+                if (questionToRun) setPendingQuestion(questionToRun);
 
                 setMessages(prev => [
                     ...prev.filter(m => m.id !== "checking_key"),
@@ -149,19 +154,31 @@ const FloatingChat: React.FC = () => {
                 ]);
                 return;
             }
-            
+
             return;
         }
 
         if (!apiKey) {
             setAwaitingApiKey(true);
-            setPendingQuestion(userQuestionOrKey); 
-            
+            setPendingQuestion(userQuestionOrKey);
+
             setMessages(prev => [
                 ...prev,
                 {
                     id: `request_api-${Date.now()}`,
-                    text: "🔑 Please enter your Gemini API key to continue. **Your question has been saved and will run automatically after verification.**",
+                    text: "🔑 Please enter your Gemini API key to continue. Your question has been saved and will run automatically after verification.",
+                    sender: "ai",
+                    timestamp: new Date(),
+                },
+                {
+                    id: "api_link",
+                    text: "You can create one for free at:\nhttps://aistudio.google.com/app/apikey",
+                    sender: "ai",
+                    timestamp: new Date(),
+                },
+                {
+                    id: "api_notice",
+                    text: "🔒 Your key is never stored on servers — only your browser.\n🧹 We recommend deleting it after use. Your question has been saved and will run automatically after verification.",
                     sender: "ai",
                     timestamp: new Date(),
                 }
@@ -225,9 +242,9 @@ const FloatingChat: React.FC = () => {
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                                 aria-label="Chat message input"
-                                // Use the input type for API key entry to obscure the key (though security is minimal on client-side localStorage)
-                                // We keep it as 'text' for ease of copy/paste unless you explicitly want 'password'.
-                                // type={awaitingApiKey ? "password" : "text"} 
+                            // Use the input type for API key entry to obscure the key (though security is minimal on client-side localStorage)
+                            // We keep it as 'text' for ease of copy/paste unless you explicitly want 'password'.
+                            // type={awaitingApiKey ? "password" : "text"} 
                             />
                             <button className="send-btn" onClick={handleSend} aria-label="Send message">
                                 <Send size={18} />

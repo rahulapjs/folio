@@ -73,6 +73,7 @@ Give the best possible answer using ONLY the provided resumeData.
         return { text };
     } catch (err) {
         console.error("Gemini API error:", err);
+        sessionStorage.removeItem("geminiKey")
         return {
             text: "There was an error processing the request. Please check your API key.",
         };
