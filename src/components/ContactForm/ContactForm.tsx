@@ -4,6 +4,7 @@ import { Send, Mail, Phone, MapPin } from 'lucide-react';
 import GlassCard from '../GlassCard/GlassCard';
 import { resumeData } from '../../data/resume';
 import './ContactForm.scss';
+import { sendEmail } from '../../services/email'
 
 const ContactForm: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -14,9 +15,18 @@ const ContactForm: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
-        alert('Message sent! (Placeholder)');
+        const templateParams = {
+            name: formData.name,
+            email: formData.email,
+            subject: "Hey, hello",
+            message: formData.message,
+        };
+        try {
+            sendEmail(templateParams);
+            setFormData({ name: '', email: '', message: '' });
+        } catch (error) {
+            console.error('Failed to send email:', error);
+        }
     };
 
     return (
@@ -58,8 +68,9 @@ const ContactForm: React.FC = () => {
                 <GlassCard className="contact-form-card">
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label>Name</label>
+                            <label htmlFor="name">Name</label>
                             <input
+                                id="name"
                                 type="text"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -69,8 +80,9 @@ const ContactForm: React.FC = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>Email</label>
+                            <label htmlFor="email">Email</label>
                             <input
+                                id="email"
                                 type="email"
                                 value={formData.email}
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -80,8 +92,9 @@ const ContactForm: React.FC = () => {
                         </div>
 
                         <div className="form-group">
-                            <label>Message</label>
+                            <label htmlFor="message">Message</label>
                             <textarea
+                                id="message"
                                 value={formData.message}
                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                 placeholder="Your message..."

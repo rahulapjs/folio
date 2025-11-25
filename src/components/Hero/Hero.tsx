@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
                         <Mail size={24} />
                         <span className="sr-only">Send Email</span>
                     </a>
-                    <a href="https://drive.google.com/file/d/10vp81RVSZhhdysMvzjt_BPwx5K0lxvkV/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" aria-label="Resume">
+                    <a href={resumeData.contact.cv} target="_blank" rel="noopener noreferrer" aria-label="Resume">
                         <FileText size={24} />
                         <span className="sr-only">Download Resume</span>
                     </a>
