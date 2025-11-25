@@ -2,12 +2,10 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home/Home';
-
-// Placeholders for other pages
-const Journey = () => <div style={{ padding: '100px', textAlign: 'center' }}>Journey Page (Coming Soon)</div>;
-const Skills = () => <div style={{ padding: '100px', textAlign: 'center' }}>Skills Page (Coming Soon)</div>;
-const Projects = () => <div style={{ padding: '100px', textAlign: 'center' }}>Projects Page (Coming Soon)</div>;
-const Contact = () => <div style={{ padding: '100px', textAlign: 'center' }}>Contact Page (Coming Soon)</div>;
+import Journey from './pages/Journey/Journey';
+import Skills from './pages/Skills/Skills';
+import Projects from './pages/Projects/Projects';
+import Contact from './pages/Contact/Contact';
 
 const AppRouter: React.FC = () => {
     const location = useLocation();

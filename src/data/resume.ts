@@ -1,10 +1,23 @@
 export const resumeData = {
     name: "Rahul AP",
     location: "Kerala, India",
+    hero:{
+        navName1: "Rahul",
+        navName2: "Ap",
+        role1: "Full-Stack Developer",
+        role2: "Generative AI Engineer",
+        exp: "2",
+        p1:"Engineering next-gen interfaces and intelligent systems with full-stack architecture and GenAI. Based in Kerala, India.",
+        name: "rahulapjs",
+        skills1: "TypeScript",
+        skills2: "GenAI",
+        skills3: "Angular",
+        passion: "Web/AI"
+    },
     contact: {
         phone: "7593960096",
-        email: "aaronrahul2k03@gmail.com",
-        linkedin: "https://linkedin.com/in/zccott",
+        email: "rahulap.js@gmail.com",
+        linkedin: "https://linkedin.com/in/rahulapjs",
         github: "https://github.com/zccott",
     },
     education: [
@@ -27,6 +40,8 @@ export const resumeData = {
                 "AI fax automation using Python + OpenAI/Gemini + Temporal.",
                 "Real-time SOAP note tool using FastAPI + WebSockets + Twilio + Whisper.",
             ],
+            github: "hdjhbhjd",
+            link: "kjkbkjnj"
         },
         {
             company: "Nexus Technologies",
@@ -38,6 +53,8 @@ export const resumeData = {
                 "AI symptom analysis feature.",
                 "Flutter cross-platform development.",
             ],
+            github: "hdjhbhjd",
+            link: "kjkbkjnj"
         },
     ],
     projects: [
@@ -51,6 +68,8 @@ export const resumeData = {
                 "Stream API integration",
                 "Screen sharing + image sharing",
             ],
+            github: "hdjhbhjd",
+            link: "kjkbkjnj"
         },
         {
             title: "Gemini AI Assistant",
@@ -60,6 +79,7 @@ export const resumeData = {
                 "Text, image, generation",
                 "Interactive modern UI",
             ],
+            github: "hdjhbhjd",
         },
         {
             title: "Gemini Webpage Summarizer",

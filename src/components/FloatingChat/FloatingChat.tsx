@@ -88,7 +88,7 @@ const FloatingChat: React.FC = () => {
                                 <Bot size={20} />
                                 <span>AI Assistant</span>
                             </div>
-                            <button onClick={() => setIsOpen(false)}><X size={18} /></button>
+                            <button onClick={() => setIsOpen(false)} aria-label="Close chat"><X size={18} /></button>
                         </div>
 
                         <div className="chat-messages">
@@ -111,15 +111,16 @@ const FloatingChat: React.FC = () => {
                         </div>
 
                         <div className="chat-input">
-                            <button className="attach-btn"><Paperclip size={18} /></button>
+                            <button className="attach-btn" aria-label="Attach file"><Paperclip size={18} /></button>
                             <input
                                 type="text"
                                 placeholder="Ask something..."
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                                aria-label="Chat message input"
                             />
-                            <button className="send-btn" onClick={handleSend}>
+                            <button className="send-btn" onClick={handleSend} aria-label="Send message">
                                 <Send size={18} />
                             </button>
                         </div>
@@ -132,6 +133,7 @@ const FloatingChat: React.FC = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label={isOpen ? "Close chat" : "Open chat"}
             >
                 {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
             </motion.button>

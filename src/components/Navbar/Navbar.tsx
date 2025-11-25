@@ -1,8 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Home, Compass, Code, Layers, Mail } from 'lucide-react';
 import './Navbar.scss';
+import { resumeData } from '../../data/resume';
+
 
 const navItems = [
     { path: '/', label: 'Home', icon: <Home size={20} /> },
@@ -20,9 +22,9 @@ const Navbar: React.FC = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div className="logo">
-                Rahul<span>.dev</span>
-            </div>
+            <Link to="/" className="logo">
+                {resumeData.hero.navName1}<span>{resumeData.hero.navName2}</span>
+            </Link>
 
             <ul className="nav-links">
                 {navItems.map((item) => (
@@ -30,6 +32,7 @@ const Navbar: React.FC = () => {
                         <NavLink
                             to={item.path}
                             className={({ isActive }) => isActive ? 'active' : ''}
+                            aria-label={item.label}
                         >
                             {({ isActive }) => (
                                 <>

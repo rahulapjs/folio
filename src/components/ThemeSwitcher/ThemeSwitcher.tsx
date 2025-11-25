@@ -31,6 +31,7 @@ const ThemeSwitcher: React.FC = () => {
                                 className={`theme-btn ${theme === t.id ? 'active' : ''}`}
                                 onClick={() => setTheme(t.id)}
                                 title={t.label}
+                                aria-label={`Switch to ${t.label} theme`}
                             >
                                 {t.icon}
                             </button>
@@ -44,6 +45,7 @@ const ThemeSwitcher: React.FC = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label="Toggle theme menu"
             >
                 <Palette size={24} />
             </motion.button>
