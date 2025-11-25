@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                 </motion.h2>
 
                 <motion.p variants={itemVariants} className="bio">
-                    {resumeData.hero.p1}
+                    {resumeData.hero.bio}
                 </motion.p>
 
                 <motion.div variants={itemVariants} className="cta-group">
