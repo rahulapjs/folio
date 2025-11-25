@@ -28,7 +28,7 @@ const FloatingChat: React.FC = () => {
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
-            text: "Hi! I'm Rahul's AI assistant. Ask me anything about his skills, projects, or experience.",
+            text: "Hi! I'm Rahul's folio.ai. Ask me anything about his skills, projects, or experience.",
             sender: 'ai',
             timestamp: new Date()
         }
@@ -204,7 +204,7 @@ const FloatingChat: React.FC = () => {
                         <div className="chat-header">
                             <div className="ai-info">
                                 <Bot size={20} />
-                                <span>AI Assistant</span>
+                                <span>Folio.ai</span>
                             </div>
                             <button onClick={() => setIsOpen(false)} aria-label="Close chat">
                                 <X size={18} />

@@ -10,7 +10,7 @@ export async function runRAG(apiKey: string, query: string): Promise<RAGResponse
     const ai = new GoogleGenAI({ apiKey });
 
     const prompt = `
-You are Rahul's portfolio AI assistant, speaking to a visitor. 
+You are Rahul's portfolio AI assistant, speaking to a visitor  and your name is folio.ai. 
 Always talk about Rahul in **third person**.
 Never speak as Rahul.
 
