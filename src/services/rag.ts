@@ -1,94 +1,80 @@
 // src/services/rag.ts
+import { GoogleGenAI } from "@google/genai";
+import { resumeData } from "../data/resume";
 
-import { GoogleGenAI } from '@google/genai';
-import { KNOWLEDGE_BASE } from '../data/kb'; 
-
-// --- TYPE DEFINITIONS ---
-interface RAGResponse {
+export interface RAGResponse {
     text: string;
 }
 
-interface KnowledgeChunk {
-    id: string;
-    title: string;
-    text: string;
-}
-
-
-// --- 1. INDEXING (Mock Retrieval for Simplicity) ---
-const retrieveRelevantContext = (query: string): KnowledgeChunk[] => {
-    const lowerQuery = query.toLowerCase();
-    const matches: KnowledgeChunk[] = [];
-    
-    KNOWLEDGE_BASE.forEach(chunk => {
-        if (chunk.text.toLowerCase().includes(lowerQuery) || 
-            chunk.title.toLowerCase().includes(lowerQuery) ||
-            query.toLowerCase().split(' ').some(word => word.length > 3 && chunk.text.toLowerCase().includes(word))
-        ) {
-            if (!matches.some(m => m.id === chunk.id)) {
-                 matches.push(chunk as KnowledgeChunk);
-            }
-        }
-    });
-
-    const hero = KNOWLEDGE_BASE.find(c => c.id === 'hero');
-    const skills = KNOWLEDGE_BASE.find(c => c.id === 'skills');
-    
-    if (hero && !matches.some(m => m.id === 'hero')) matches.push(hero as KnowledgeChunk);
-    if (skills && !matches.some(m => m.id === 'skills')) matches.push(skills as KnowledgeChunk);
-
-    return matches.slice(0, 5); 
-};
-
-
-// --- 2. GENERATION (Augmented with Retrieved Context) ---
 export async function runRAG(apiKey: string, query: string): Promise<RAGResponse> {
-    
-    // Step 1: Retrieval
-    const retrievedChunks = retrieveRelevantContext(query);
-
-    if (retrievedChunks.length === 0) {
-        return { 
-            text: "I couldn't find any relevant information in Rahul's resume to answer that question. Could you try asking about his skills, experience, or projects?" 
-        };
-    }
-    
-    const context = retrievedChunks
-        .map(chunk => `## ${chunk.title}\n${chunk.text}`)
-        .join('\n\n---\n\n');
-
-    // Step 2: Generation (Prompt Construction)
-    const prompt = `You are a helpful AI assistant for a professional resume. 
-    Your name is Rahul's AI Assistant.
-    Your task is to answer the user's question ONLY based on the provided CONTEXT. 
-    Do not use any external knowledge. 
-    If the context does not contain the answer, politely state that the information is not in the resume. 
-    Be concise, professional, and friendly.
-
-    CONTEXT:
-    ---
-    ${context}
-    ---
-
-    USER QUESTION: "${query}"
-
-    ANSWER:`;
     const ai = new GoogleGenAI({ apiKey });
-    
+
+    const prompt = `
+You are Rahul's portfolio AI assistant, speaking to a visitor. 
+Always talk about Rahul in **third person**.
+Never speak as Rahul.
+
+Here is Rahul's COMPLETE DATA (use only this data, never invent new info):
+
+${JSON.stringify(resumeData, null, 2)}
+
+=======================  
+INSTRUCTIONS  
+=======================  
+Your behavior rules:
+
+1. GREETINGS  
+   - If user says “hi”, “hello”, “hey”, greet warmly.  
+   - Example: “Hello! How can I help you learn more about Rahul?”  
+
+2. CATEGORY LOGIC  
+   - If the question is about **projects**, answer ONLY using resumeData.projects.  
+   - If the question is about **experience**, answer ONLY using resumeData.experience.  
+   - If about **skills**, answer ONLY using resumeData.skills.  
+   - If asking about **current job / where he works / now working**, return the item where year includes “Present”.  
+   - If question matches multiple areas, choose the MOST relevant one.  
+   - If unrelated or general, give a simple helpful answer describing Rahul.  
+   - NEVER mix job experience with project lists.
+
+3. ANSWER STYLE  
+   - Always respond in third person (“Rahul is…”, “His experience includes…”).  
+   - Keep answers clear, concise, friendly.  
+   - Use bullet points when listing items.  
+   - Never fabricate information.  
+
+FORMAT RULES:
+- Always answer in clean, natural paragraphs.
+- Do NOT use bullet points, lists, tables, markdown sections, or nested formatting.
+- Combine related skills into a concise paragraph (max 3 sentences).
+- Keep the response readable and conversational, not technical documentation.
+
+=======================  
+USER QUESTION:  
+${query}  
+=======================  
+
+Give the best possible answer using ONLY the provided resumeData.
+`;
+
     try {
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: prompt,
             config: {
-                temperature: 0.2, 
+                temperature: 0.2,
             }
         });
 
-        const text = response.text || "Sorry, the AI was unable to generate a response.";
-        
+        const text =
+            response?.text ??
+            response?.candidates?.[0]?.content?.parts?.[0]?.text ??
+            "Sorry, I couldn't generate a response.";
+
         return { text };
-    } catch (error) {
-        console.error("Gemini API call failed during RAG generation:", error);
-        throw new Error("API call failed. Please check the provided API key.");
+    } catch (err) {
+        console.error("Gemini API error:", err);
+        return {
+            text: "There was an error processing the request. Please check your API key.",
+        };
     }
 }

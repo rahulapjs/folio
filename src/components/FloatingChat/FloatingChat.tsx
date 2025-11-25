@@ -21,10 +21,8 @@ interface Message {
 const FloatingChat: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [input, setInput] = useState('');
-    const [apiKey, setApiKey] = useState<string>(() => localStorage.getItem("geminiKey") || "");
+    const [apiKey, setApiKey] = useState<string>(() => sessionStorage.getItem("geminiKey") || "");
     const [awaitingApiKey, setAwaitingApiKey] = useState(false);
-    
-    // RE-INTRODUCED: State to store the user's question while they enter the API key
     const [pendingQuestion, setPendingQuestion] = useState<string | null>(null);
 
     const [messages, setMessages] = useState<Message[]>([
@@ -47,13 +45,11 @@ const FloatingChat: React.FC = () => {
         scrollToBottom();
     }, [messages]);
 
-    // --- HELPER FUNCTION: RAG Query Execution ---
-    // This logic is factored out to be reusable for both normal chat and post-key validation.
     const runRagQuery = async (key: string, question: string) => {
         setIsTyping(true);
 
         try {
-            const response = await runRAG(key, question); // Use the validated key and question
+            const response = await runRAG(key, question);
 
             setMessages(prev => [
                 ...prev,
@@ -65,10 +61,7 @@ const FloatingChat: React.FC = () => {
                 }
             ]);
         } catch (e) {
-            // Re-throw or handle the error such that the calling function knows the key/API failed.
-            // For this component, we'll return a special error code or throw the error.
-            // For now, throwing the error will be caught by the handleSend logic for invalid keys.
-            throw new Error("RAG execution failed, possibly due to an invalid key or API error.");
+            console.error(e)
         } finally {
             setIsTyping(false);
         }
@@ -78,10 +71,9 @@ const FloatingChat: React.FC = () => {
     const handleSend = async () => {
         if (!input.trim()) return;
 
-        const userQuestionOrKey = input; // Store current input
-        setInput(''); // Clear input immediately
+        const userQuestionOrKey = input;
+        setInput(''); 
         
-        // 1. Add User's Message/Key Attempt to the chat history
         const userMsg: Message = {
             id: Date.now().toString(),
             text: userQuestionOrKey,
@@ -91,21 +83,17 @@ const FloatingChat: React.FC = () => {
         setMessages(prev => [...prev, userMsg]);
         scrollToBottom();
 
-
-        // CASE 1: The user is currently entering the API key (awaitingApiKey is TRUE)
         if (awaitingApiKey) {
             const keyAttempt = userQuestionOrKey.trim();
-            setAwaitingApiKey(false); // We are attempting validation now
+            setAwaitingApiKey(false); 
 
             const questionToRun = pendingQuestion; 
-            // We clear the pending question because we are about to run it (or fail trying)
             setPendingQuestion(null); 
 
             setMessages(prev => [
                 ...prev,
                 {
                     id: "checking_key",
-                    // Updated message to reflect that we are answering the question as a test
                     text: `⏳ Verifying key and attempting to answer the saved question...`,
                     sender: "ai",
                     timestamp: new Date(),
@@ -114,21 +102,15 @@ const FloatingChat: React.FC = () => {
             
             scrollToBottom(); 
             
-            // --- KEY VALIDATION VIA RAG EXECUTION ---
-            
             let valid = false;
             if (questionToRun) {
                 try {
-                    // Start typing indicator, but this is handled inside runRagQuery, 
-                    // so we'll just call it and rely on its success/failure.
                     const response = await runRAG(keyAttempt, questionToRun);
                     valid = true;
                     
-                    // Key is valid - Set the key, store it, and set the answer
-                    localStorage.setItem("geminiKey", keyAttempt);
+                    sessionStorage.setItem("geminiKey", keyAttempt);
                     setApiKey(keyAttempt);
 
-                    // Add success message
                     const verifiedMessage: Message = {
                         id: "verified",
                         text: "🎉 API Key verified! Here is the answer to your question:",
@@ -136,7 +118,6 @@ const FloatingChat: React.FC = () => {
                         timestamp: new Date(),
                     };
                     
-                    // Add the RAG answer (which also serves as the validation proof)
                     const answerMessage: Message = {
                         id: Date.now().toString(),
                         text: response.text,
@@ -144,26 +125,21 @@ const FloatingChat: React.FC = () => {
                         timestamp: new Date()
                     }
 
-                    // Must use setMessages to append all at once or use a function form to ensure order
                     setMessages(prev => [...prev.filter(m => m.id !== "checking_key"), verifiedMessage, answerMessage]);
 
                 } catch (err) {
-                    // If runRAG fails, the key is invalid or there's an RAG config issue.
                     valid = false;
                     console.error("API Key verification via RAG failed:", err);
                 }
             }
             
             if (!valid) {
-                // If invalid, go back to awaiting key state
                 setAwaitingApiKey(true);
-                
-                // Re-store the pending question if the validation failed, 
-                // so the user can try again with a different key.
+
                 if (questionToRun) setPendingQuestion(questionToRun); 
 
                 setMessages(prev => [
-                    ...prev.filter(m => m.id !== "checking_key"), // Remove the checking message
+                    ...prev.filter(m => m.id !== "checking_key"),
                     {
                         id: "invalid_key",
                         text: "❌ Invalid API key. The attempt to run your question failed. Please try a different key.",
@@ -174,13 +150,11 @@ const FloatingChat: React.FC = () => {
                 return;
             }
             
-            return; // Key verification is complete and question is answered (if successful)
+            return;
         }
 
-        // CASE 2: No API key yet → ask user to enter it 
         if (!apiKey) {
             setAwaitingApiKey(true);
-            // Store the original question as pending
             setPendingQuestion(userQuestionOrKey); 
             
             setMessages(prev => [
@@ -195,9 +169,7 @@ const FloatingChat: React.FC = () => {
             return;
         }
 
-        // CASE 3: Normal chat flow with valid API key
         if (apiKey) {
-            // Note: runRagQuery handles setIsTyping and setMessages internally.
             await runRagQuery(apiKey, userQuestionOrKey);
         }
     };

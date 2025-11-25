@@ -9,43 +9,54 @@ export const KNOWLEDGE_BASE = [
     // ---------------- HERO ----------------
     {
         id: "hero",
+        category: "hero",
         title: "Hero Summary",
-        text: `${resumeData.name} — ${resumeData.hero.role1} & ${resumeData.hero.role2}. ${resumeData.hero.bio}`
+        text: `${resumeData.name} — ${resumeData.hero.role1} & ${resumeData.hero.role2}. ${resumeData.hero.bio}`,
     },
 
     // ---------------- CONTACT ----------------
     {
         id: "contact",
+        category: "contact",
         title: "Contact Information",
-        text: `Email: ${resumeData.contact.email}. Location: ${resumeData.location}. LinkedIn: ${resumeData.contact.linkedin}. GitHub: ${resumeData.contact.github}.`
+        text: `Email: ${resumeData.contact.email}. Phone: ${resumeData.contact.phone}. Location: ${resumeData.location}. LinkedIn: ${resumeData.contact.linkedin}. GitHub: ${resumeData.contact.github}.`,
     },
 
     // ---------------- EDUCATION ----------------
     {
         id: "education",
+        category: "education",
         title: "Education",
         text: resumeData.education
             .map(e => `${e.degree} from ${e.institution} (${e.year})`)
-            .join(". ")
+            .join(". "),
     },
 
     // ---------------- EXPERIENCE ----------------
     ...resumeData.experience.map((ex, i) => ({
         id: `exp_${i}`,
+        category: "experience",
+        company: ex.company,
+        isCurrent: ex.year.toLowerCase().includes("present"),
         title: `${ex.role} @ ${ex.company}`,
-        text: `${ex.role} at ${ex.company} (${ex.year}). ${join(ex.description)}`
+        text: `${ex.role} at ${ex.company} (${ex.year}). ${join(ex.description)}`,
     })),
 
     // ---------------- PROJECTS ----------------
     ...resumeData.projects.map((prj, i) => ({
         id: `project_${i}`,
+        category: "project",
         title: prj.title,
-        text: `${prj.title} — ${prj.subtitle}. Tech used: ${prj.tech.join(", ")}. ${join(prj.description)}`
+        tech: prj.tech,
+        subtitle: prj.subtitle,
+        link: prj.link || prj.github || null,
+        text: `${prj.title} — ${prj.subtitle}. Tech used: ${prj.tech.join(", ")}. ${join(prj.description)}`,
     })),
 
     // ---------------- SKILLS ----------------
     {
         id: "skills",
+        category: "skills",
         title: "Technical Skills",
         text: [
             `Frontend: ${resumeData.skills.frontend.join(", ")}`,
@@ -54,7 +65,7 @@ export const KNOWLEDGE_BASE = [
             `State Mgmt: ${resumeData.skills.state.join(", ")}`,
             `Realtime: ${resumeData.skills.realtime.join(", ")}`,
             `Tools: ${resumeData.skills.tools.join(", ")}`,
-            `Design: ${resumeData.skills.design.join(", ")}`
-        ].join(" • ")
-    }
+            `Design: ${resumeData.skills.design.join(", ")}`,
+        ].join(" • "),
+    },
 ];
