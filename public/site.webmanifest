@@ -1,6 +1,6 @@
 {
-  "name": "rahulapjs",
-  "short_name": "rahul",
+  "name": "Rahul A P - Portfolio",
+  "short_name": "Rahul A P",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#0a0a0a",
   "background_color": "#f2f2f2",
   "display": "standalone"
 }
