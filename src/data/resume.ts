@@ -60,11 +60,10 @@ export const resumeData = {
             subtitle: "Multi-Agent Medical Assistant",
             tech: ["Python", "Google ADK", "Gemini 2.5 Flash Lite", "Google Search Tool", "InMemoryRunner"],
             description: [
-                "Multi-agent pipeline for medical intake and SOAP note creation",
-                "Extracts structured clinical data from conversations",
-                "Fetches guideline evidence via Google Search Tool",
-                "Generates clinically accurate SOAP notes with safety checks",
-                "Fully runnable Kaggle project",
+                "A multi-agent medical automation system that transforms patient–provider conversations into structured, clinically accurate SOAP notes.",
+                "Extracts medical entities, performs evidence validation using Google Search Tool, and enforces safety constraints through agent-level reasoning.",
+                "Built with Gemini 2.5 Flash Lite, Python, and Google ADK to ensure fact-checked and guideline-aligned outputs.",
+                "Includes a fully runnable Kaggle notebook demonstrating end-to-end workflow automation for healthcare documentation.",
             ],
             link: "https://www.kaggle.com/code/rahulapjs/multi-agent-medical-intake-soap-note-generator",
         },
@@ -73,10 +72,10 @@ export const resumeData = {
             subtitle: "AI-Powered README Generator",
             tech: ["React", "Redux", "Gemini", "Material-UI"],
             description: [
-                "Web app for creating structured, professional README files",
-                "Pre-designed templates with live markdown preview",
-                "Gemini-powered content optimization using API key",
-                "Add, edit, and reorder README sections with real-time updates",
+                "An interactive web app that generates clean, professional README files using customizable templates and live markdown preview.",
+                "Features section-based editing, reordering, autosave, and a responsive Material-UI interface.",
+                "Gemini API integration enables automatic content improvement, keyword insertion, and readability enhancement.",
+                "Built with React + Redux Toolkit for predictable state management and a smooth editing workflow.",
             ],
             github: "https://github.com/rahulapjs/readmeGenerator",
         },
@@ -85,11 +84,10 @@ export const resumeData = {
             subtitle: "Streamlit + GenAI Resume Parsing Tool",
             tech: ["Streamlit", "Python", "Gemini 1.5 Flash/Pro"],
             description: [
-                "Extracts resume text using PyPDF2",
-                "Parses resume into detailed structured JSON",
-                "Generates professional first-person summary with Gemini",
-                "Supports multiple model selection (Flash / Pro)",
-                "Clean UI with real-time feedback",
+                "AI-driven resume parsing tool that extracts unstructured PDF text and converts it into structured, machine-readable JSON.",
+                "Generates polished first-person professional summaries using Gemini Flash/Pro models.",
+                "Built with Streamlit for a clean, fast UI and PyPDF2 for precise text extraction.",
+                "Includes real-time feedback, model switching, and multi-format export for recruiters and job seekers.",
             ],
             github: "https://github.com/rahulapjs/ResumeParserAI",
         },
@@ -98,11 +96,10 @@ export const resumeData = {
             subtitle: "AI-Powered Symptom Checker",
             tech: ["Flutter", "Firebase", "Python", "ML"],
             description: [
-                "AI-powered symptom checker with chatbot interface",
-                "Hospital locator with specialization filters",
-                "User & hospital authentication using Firebase",
-                "Admin module for managing hospitals and approvals",
-                "ML-based diagnosis model integrated via Python API",
+                "Cross-platform medical assistant app that predicts possible conditions based on user symptoms using machine learning.",
+                "Includes Firebase authentication, a hospital locator with specialization filters, and admin dashboards for hospital approvals.",
+                "Conversational chatbot interface powered by Python APIs for diagnosis logic.",
+                "Optimized for mobile with Flutter, following clean UI/UX medical design patterns.",
             ],
             github: "https://github.com/rahulapjs/EasyDiagno",
         },
@@ -111,22 +108,51 @@ export const resumeData = {
             subtitle: "Full Stack Chat App",
             tech: ["React", "Express", "WebRTC"],
             description: [
-                "Real-time messaging + video chat",
-                "100+ concurrent users",
-                "Stream API integration",
-                "Screen sharing + image sharing",
+                "Real-time chat + video calling application built with WebRTC, WebSockets, and Express.",
+                "Supports screen sharing, image sharing, typing indicators, and online presence tracking.",
+                "Frontend optimized for low-latency calls and tested with 100+ concurrent users.",
+                "Showcases full-stack architecture and peer-to-peer communication fundamentals.",
             ],
             github: "https://github.com/rahulapjs/streamify",
         },
     ],
+
     skills: {
-        frontend: ["React","Angular","TypeScript","JavaScript (ES6+)","SCSS","HTML5","CSS3"],
-        backend: ["Node.js","Express","FastAPI","Python","PostgreSQL","MongoDB","REST APIs"],
-        state: ["NgRx","RxJS","Redux Toolkit"],
-        ai: ["OpenAI","Gemini","Google ADK","LangChain","Whisper","LLM Prompt Engineering"],
-        tools: ["Docker","Temporal","Git","Cypress","Postman","PyPDF2","BeautifulSoup"],
-        realtime: ["WebSockets","WebRTC","Twilio"],
-        design: ["Figma","UI/UX"]
+        frontend: ["React", "Angular", "TypeScript", "JavaScript (ES6+)", "SCSS", "HTML5", "CSS3"],
+        backend: ["Node.js", "Express", "FastAPI", "Python", "PostgreSQL", "MongoDB", "REST APIs"],
+        state: ["NgRx", "RxJS", "Redux Toolkit"],
+        ai: ["OpenAI", "Gemini", "Google ADK", "LangChain", "Whisper", "LLM Prompt Engineering"],
+        tools: ["Docker", "Temporal", "Git", "Cypress", "Postman", "PyPDF2", "BeautifulSoup"],
+        realtime: ["WebSockets", "WebRTC", "Twilio"],
+        design: ["Figma", "UI/UX"]
     }
 
+};
+
+export const seo = {
+    home: {
+        title: "Rahul A P | Full-Stack Developer & Generative AI Engineer",
+        description:
+            "Full-Stack Developer and GenAI Engineer from Kerala, India. Building intelligent, scalable applications using Angular, React, Node.js, Python, FastAPI, and AI technologies."
+    },
+    journey: {
+        title: "Career Journey | Rahul A P — Full-Stack Developer & GenAI Engineer",
+        description:
+            "Explore the journey of Rahul A P — from academics to engineering AI-driven healthcare platforms, automation systems, and full-stack applications."
+    },
+    skills: {
+        title: "Skills & Tech Stack | Rahul A P — Full-Stack & GenAI Developer",
+        description:
+            "Technical skills of Rahul A P: Angular, React, TypeScript, Node.js, Python, FastAPI, MongoDB, NgRx, WebSockets, and GenAI tools like OpenAI and Gemini."
+    },
+    projects: {
+        title: "Projects | Rahul A P — AI, Full-Stack & Automation Engineering",
+        description:
+            "Explore AI agents, full-stack apps, automation tools, chat applications, resume analyzers, and more by Full-Stack Developer & GenAI Engineer Rahul A P."
+    },
+    contact: {
+        title: "Contact | Rahul A P — Full-Stack Developer & GenAI Engineer",
+        description:
+            "Get in touch with Full-Stack Developer and GenAI Engineer Rahul A P for collaborations, freelance work, or engineering opportunities."
+    }
 };

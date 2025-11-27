@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
-import { resumeData } from '../../data/resume';
+import { seo, resumeData } from '../../data/resume';
 import './Projects.scss';
+import { Helmet } from "react-helmet"
 
 const Projects: React.FC = () => {
     return (
@@ -13,6 +14,11 @@ const Projects: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
         >
+            {/* SEO TAGS */}
+            <Helmet>
+                <title>{seo.projects.title}</title>
+                <meta name="description" content={seo.projects.description} />
+            </Helmet>
             <div className="page-header">
                 <h1>Featured Projects</h1>
                 <p>A selection of my recent work.</p>

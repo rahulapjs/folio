@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import './Contact.scss';
+import { Helmet } from "react-helmet"
+import { seo } from '../../data/resume';
 
 const Contact: React.FC = () => {
     return (
@@ -12,6 +14,11 @@ const Contact: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
         >
+            {/* SEO TAGS */}
+            <Helmet>
+                <title>{seo.contact.title}</title>
+                <meta name="description" content={seo.contact.description} />
+            </Helmet>
             <div className="page-content">
                 <ContactForm />
             </div>
