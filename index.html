@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rahul Ap</title>
 
+  <!-- Required site-name hints -->
+  <meta property="og:site_name" content="Rahul A P" />
+  <meta name="application-name" content="Rahul A P" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,11 +58,12 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://rahulap.vercel.app/" />
 
-  <!-- Structured Data: Person Schema -->
+  <!-- Structured Data: Person Schema (With @id) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://rahulap.vercel.app/#person",
     "name": "Rahul A P",
     "additionalName": "rahulap",
     "url": "https://rahulap.vercel.app",
@@ -77,14 +82,18 @@
   }
   </script>
 
-  <!-- Structured Data: Website Schema -->
+  <!-- Structured Data: Website Schema (With @id + publisher) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://rahulap.vercel.app/#website",
+    "url": "https://rahulap.vercel.app/",
     "name": "Rahul A P",
     "alternateName": ["Rahul Ap", "rahulap"],
-    "url": "https://rahulap.vercel.app/",
+    "publisher": {
+      "@id": "https://rahulap.vercel.app/#person"
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://rahulap.vercel.app/?s={search_term_string}",
