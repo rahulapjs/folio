@@ -2,8 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Timeline from '../../components/Timeline/Timeline';
 import './Journey.scss';
-import { Helmet } from "react-helmet"
-import { seo } from '../../data/resume';
 
 const Journey: React.FC = () => {
     return (
@@ -14,11 +12,6 @@ const Journey: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
         >
-            {/* SEO TAGS */}
-            <Helmet>
-                <title>{seo.journey.title}</title>
-                <meta name="description" content={seo.journey.description} />
-            </Helmet>
             <div className="page-header">
                 <h1>My Journey</h1>
                 <p>A timeline of my professional experience and education.</p>
