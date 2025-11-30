@@ -22,9 +22,11 @@ const Navbar: React.FC = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <Link to="/" className="logo">
-                {resumeData.hero.navName1}<span>{resumeData.hero.navName2}</span>
-            </Link>
+            <h1>
+                <Link to="/" className="logo">
+                    {resumeData.hero.navName1}<span>{resumeData.hero.navName2}</span>
+                </Link>
+            </h1>
 
             <ul className="nav-links">
                 {navItems.map((item) => (

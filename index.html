@@ -10,11 +10,21 @@
   <meta property="og:site_name" content="Rahul A P" />
   <meta name="application-name" content="Rahul A P" />
 
-  <!-- Fonts -->
+  <!-- Ultra-fast Inter font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <style>
+    /* Prevent layout shift */
+    html {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
@@ -99,6 +109,9 @@
     "name": "Rahul A P",
     "alternateName": ["Rahul Ap", "rahulap"],
     "publisher": {
+      "@id": "https://rahulap.vercel.app/#person"
+    },
+    "author": { <!-- Added author property -->
       "@id": "https://rahulap.vercel.app/#person"
     },
     "potentialAction": {
