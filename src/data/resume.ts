@@ -19,7 +19,7 @@ export const resumeData = {
         email: "rahulap.js@gmail.com",
         linkedin: "https://linkedin.com/in/rahulapjs",
         github: "https://github.com/zccott",
-        cv: "https://drive.google.com/file/d/10vp81RVSZhhdysMvzjt_BPwx5K0lxvkV/view?usp=drivesdk"
+        cv: "https://drive.google.com/file/d/1NN0QvdoUL-jUQ9YL4Tm3S4jZhg-M5Gzr/view?usp=sharing"
     },
     education: [
         {
