@@ -143,7 +143,7 @@ export const resumeData = {
     skills: {
         frontend: ["React", "Angular", "TypeScript", "JavaScript (ES6+)", "SCSS", "HTML5", "CSS3"],
         backend: ["Node.js", "Express", "FastAPI", "Python", "PostgreSQL", "MongoDB", "REST APIs"],
-        state: ["NgRx", "RxJS", "Redux Toolkit"],
+        state: ["NgRx","NGXS", "RxJS", "Redux Toolkit"],
         ai: ["OpenAI", "Gemini", "Google ADK", "LangChain", "Whisper", "LLM Prompt Engineering"],
         tools: ["Docker", "Temporal", "Git", "Cypress", "Postman", "PyPDF2", "BeautifulSoup"],
         realtime: ["WebSockets", "WebRTC", "Twilio"],
