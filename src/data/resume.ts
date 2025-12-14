@@ -56,7 +56,7 @@ export const resumeData = {
     ],
     projects: [
         {
-            title: "DocuChat",
+            title: "QueryDoc",
             subtitle: "Retrieval-Augmented Document Q&A System",
             tech: [
                 "React (Vite)",
@@ -74,7 +74,7 @@ export const resumeData = {
                 "Modern single-page UI with API-key-first flow, document upload, and chat interface",
                 "Clear separation of vector storage and chunk metadata for accurate context grounding"
             ],
-            github: "https://github.com/rahulapjs/docuchat"
+            github: "https://github.com/rahulapjs/QueryDoc"
         },
         {
             title: "AI-Powered SOAP Note Generator",
