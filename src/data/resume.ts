@@ -56,6 +56,27 @@ export const resumeData = {
     ],
     projects: [
         {
+            title: "DocuChat",
+            subtitle: "Retrieval-Augmented Document Q&A System",
+            tech: [
+                "React (Vite)",
+                "TypeScript",
+                "FastAPI",
+                "FAISS",
+                "Gemini (Google ADK)",
+                "Python"
+            ],
+            description: [
+                "Built a secure Retrieval-Augmented Generation (RAG) system to chat with uploaded documents",
+                "Implements vector-based semantic search using FAISS with Gemini embeddings",
+                "Supports multi-question conversational querying over a single uploaded PDF",
+                "Session-based multi-user isolation without authentication or API key storage",
+                "Modern single-page UI with API-key-first flow, document upload, and chat interface",
+                "Clear separation of vector storage and chunk metadata for accurate context grounding"
+            ],
+            github: "https://github.com/rahulapjs/docuchat"
+        },
+        {
             title: "AI-Powered SOAP Note Generator",
             subtitle: "Multi-Agent Medical Assistant",
             tech: ["Python", "Google ADK", "Gemini 2.5 Flash Lite", "Google Search Tool", "InMemoryRunner"],
@@ -120,13 +141,13 @@ export const resumeData = {
         },
     ],
     skills: {
-        frontend: ["React","Angular","TypeScript","JavaScript (ES6+)","SCSS","HTML5","CSS3"],
-        backend: ["Node.js","Express","FastAPI","Python","PostgreSQL","MongoDB","REST APIs"],
-        state: ["NgRx","RxJS","Redux Toolkit"],
-        ai: ["OpenAI","Gemini","Google ADK","LangChain","Whisper","LLM Prompt Engineering"],
-        tools: ["Docker","Temporal","Git","Cypress","Postman","PyPDF2","BeautifulSoup"],
-        realtime: ["WebSockets","WebRTC","Twilio"],
-        design: ["Figma","UI/UX"]
+        frontend: ["React", "Angular", "TypeScript", "JavaScript (ES6+)", "SCSS", "HTML5", "CSS3"],
+        backend: ["Node.js", "Express", "FastAPI", "Python", "PostgreSQL", "MongoDB", "REST APIs"],
+        state: ["NgRx", "RxJS", "Redux Toolkit"],
+        ai: ["OpenAI", "Gemini", "Google ADK", "LangChain", "Whisper", "LLM Prompt Engineering"],
+        tools: ["Docker", "Temporal", "Git", "Cypress", "Postman", "PyPDF2", "BeautifulSoup"],
+        realtime: ["WebSockets", "WebRTC", "Twilio"],
+        design: ["Figma", "UI/UX"]
     }
 
 };
