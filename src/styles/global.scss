@@ -1,12 +1,18 @@
 @import 'variables';
 @import 'mixins/glass';
 
+/* =========================
+   Global Reset
+   ========================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* =========================
+   Body
+   ========================= */
 body {
   font-family: var(--font-main);
   background: var(--bg);
@@ -15,10 +21,45 @@ body {
   min-height: 100dvh;
   transition: background 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
-  
-  /* Optional: Add a subtle grain or mesh overlay here if desired */
 }
 
+/* =========================
+   Theme-Aware Scrollbar
+   ========================= */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: var(--scrollbar-radius);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  background-clip: content-box;
+  box-shadow: 0 0 12px var(--edge-glow);
+}
+
+/* =========================
+   Base Elements
+   ========================= */
 a {
   text-decoration: none;
   color: inherit;
@@ -31,18 +72,23 @@ button {
   font-family: inherit;
 }
 
-/* Global Glass Classes */
+/* =========================
+   Global Glass Classes
+   ========================= */
 .glass-panel {
   @include glass-card;
   padding: var(--spacing-md);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: var(--glass-shadow), 0 0 15px var(--edge-glow);
   }
 }
 
+/* =========================
+   Layout Container
+   ========================= */
 .page-container {
   min-height: 100dvh;
   width: 100%;
@@ -51,14 +97,16 @@ button {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  
+
   @media (min-width: 768px) {
     height: 100dvh;
-    overflow: hidden; /* Prevent scrolling on desktop as per requirement */
+    overflow: hidden; /* Prevent scrolling on desktop */
   }
 }
 
-// Screen reader only utility
+/* =========================
+   Accessibility
+   ========================= */
 .sr-only {
   position: absolute;
   width: 1px;
