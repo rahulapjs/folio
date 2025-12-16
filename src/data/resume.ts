@@ -56,6 +56,31 @@ export const resumeData = {
     ],
     projects: [
         {
+            title: "SemanticFeed",
+            subtitle: "AI-Powered Tech News Aggregation & Deduplication Platform",
+            tech: [
+                "React (Vite)",
+                "TypeScript",
+                "Redux",
+                "FastAPI",
+                "PostgreSQL",
+                "Google ADK",
+                "Gemini 2.5 Flash",
+                "Python"
+            ],
+            description: [
+                "Built an AI-driven tech news aggregation platform that scrapes and ingests articles from multiple global and Indian tech sources",
+                "Implements rule-based and semantic deduplication to cluster multiple articles into a single unified story",
+                "Uses Gemini embeddings and semantic matching to detect similar news across different publishers",
+                "Generates concise, neutral AI summaries per story using batch-based Gemini processing for efficiency",
+                "Supports full article content ingestion with intelligent fallback to headlines when content is unavailable",
+                "Automated background ingestion via scheduled cron worker with incremental database updates",
+                "Single API feed endpoint serving deduplicated stories with sources, timestamps, and AI summaries",
+                "Designed for scalability with clear separation of scraping, ingestion, deduplication, and summarization layers"
+            ],
+            github: "https://github.com/rahulapjs/SemanticFeed"
+        },
+        {
             title: "QueryDoc",
             subtitle: "Retrieval-Augmented Document Q&A System",
             tech: [
@@ -143,7 +168,7 @@ export const resumeData = {
     skills: {
         frontend: ["React", "Angular", "TypeScript", "JavaScript (ES6+)", "SCSS", "HTML5", "CSS3"],
         backend: ["Node.js", "Express", "FastAPI", "Python", "PostgreSQL", "MongoDB", "REST APIs"],
-        state: ["NgRx","NGXS", "RxJS", "Redux Toolkit"],
+        state: ["NgRx", "NGXS", "RxJS", "Redux Toolkit"],
         ai: ["OpenAI", "Gemini", "Google ADK", "LangChain", "Whisper", "LLM Prompt Engineering"],
         tools: ["Docker", "Temporal", "Git", "Cypress", "Postman", "PyPDF2", "BeautifulSoup"],
         realtime: ["WebSockets", "WebRTC", "Twilio"],
