@@ -69,14 +69,12 @@ export const resumeData = {
                 "Python"
             ],
             description: [
-                "Built an AI-driven tech news aggregation platform that scrapes and ingests articles from multiple global and Indian tech sources",
-                "Implements rule-based and semantic deduplication to cluster multiple articles into a single unified story",
-                "Uses Gemini embeddings and semantic matching to detect similar news across different publishers",
-                "Generates concise, neutral AI summaries per story using batch-based Gemini processing for efficiency",
-                "Supports full article content ingestion with intelligent fallback to headlines when content is unavailable",
-                "Automated background ingestion via scheduled cron worker with incremental database updates",
-                "Single API feed endpoint serving deduplicated stories with sources, timestamps, and AI summaries",
-                "Designed for scalability with clear separation of scraping, ingestion, deduplication, and summarization layers"
+                "Built an AI-powered tech news aggregation platform ingesting articles from multiple global and Indian sources",
+                "Implements rule-based and semantic deduplication to cluster related articles into unified stories",
+                "Generates concise AI summaries per story using efficient batch-based Gemini processing",
+                "Supports full article content ingestion with fallback to headlines when content is unavailable",
+                "Automates background ingestion via scheduled cron jobs with incremental database updates",
+                "Exposes a single feed API returning deduplicated stories with sources, timestamps, and AI summaries"
             ],
             github: "https://github.com/rahulapjs/SemanticFeed"
         },
