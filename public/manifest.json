@@ -1,11 +1,11 @@
 {
-  "name": "Rahul A P",
+  "name": "Rahul A P | Software Engineer",
   "short_name": "Rahul A P",
+  "description": "Rahul A P is a Software Engineer at AOT Technologies specializing in Full-Stack and GenAI.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
-  "description": "Rahul A P, Software Engineer at AOT Technologies",
   "icons": [
     {
       "src": "/favicon16.png",
@@ -18,11 +18,6 @@
       "type": "image/png"
     },
     {
-      "src": "/favicon64.png",
-      "sizes": "64x64",
-      "type": "image/png"
-    },
-    {
       "src": "/favicon96.png",
       "sizes": "96x96",
       "type": "image/png"
@@ -30,18 +25,13 @@
     {
       "src": "/favicon192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/favicon512.png",
       "sizes": "512x512",
       "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ]
 }

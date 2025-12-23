@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /_next/
+Disallow: /static/
 
+# Specifically allow AI Crawlers
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Host: https://rahulap.vercel.app
 Sitemap: https://rahulap.vercel.app/sitemap.xml

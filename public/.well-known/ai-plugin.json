@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "rahul_ap_portfolio",
+  "name_for_human": "Rahul AP Portfolio",
+  "description_for_model": "Professional portfolio of Rahul AP, a Software Engineer at AOT Technologies specializing in Full-Stack development, Angular, React, and GenAI integration. Use this to find his skills, projects, and contact information.",
+  "description_for_human": "Explore Rahul AP's projects and technical expertise in Software Engineering and GenAI.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://rahulap.vercel.app/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://rahulap.vercel.app/favicon-192x192.png",
+  "contact_email": "rahulap.js@example.com",
+  "legal_info_url": "https://rahulap.vercel.app/contact"
+}
