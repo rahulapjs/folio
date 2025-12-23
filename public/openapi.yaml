@@ -1,0 +1,51 @@
+openapi: 3.0.1
+info:
+  title: Rahul AP Portfolio API
+  description: API for fetching professional details, projects, and skills of Rahul AP, a Software Engineer at AOT Technologies.
+  version: 'v1'
+servers:
+  - url: https://rahulap.vercel.app
+paths:
+  /data/resume.json:
+    get:
+      operationId: getResumeData
+      summary: Retrieves Rahul AP's professional resume data.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getResumeResponse'
+  /data/projects.json:
+    get:
+      operationId: getProjectData
+      summary: Retrieves a list of software projects developed by Rahul AP.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getProjectsResponse'
+components:
+  schemas:
+    getResumeResponse:
+      type: object
+      properties:
+        basics:
+          type: object
+          properties:
+            name:
+              type: string
+            label:
+              type: string
+    getProjectsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
