@@ -4,6 +4,7 @@ import { ArrowRight, Github, Linkedin, Mail, FileText } from 'lucide-react';
 import GlassCard from '../GlassCard/GlassCard';
 import { resumeData } from '../../data/resume';
 import './Hero.scss';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
     const containerVariants = {
@@ -53,12 +54,12 @@ const Hero: React.FC = () => {
                 </motion.p>
 
                 <motion.div variants={itemVariants} className="cta-group">
-                    <a href="/projects" className="primary-btn">
+                    <Link to="/projects"className="primary-btn">
                         View Work <ArrowRight size={18} />
-                    </a>
-                    <a href="/contact" className="secondary-btn">
+                    </Link>
+                    <Link to="/contact" className="secondary-btn">
                         Contact Me
-                    </a>
+                    </Link>
                 </motion.div>
 
                 <motion.div variants={itemVariants} className="social-links">
