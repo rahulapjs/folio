@@ -114,3 +114,12 @@
     }
   }
 }
+
+ @media (max-width: 425px) {
+  .navbar {
+    gap: 0px;
+    width: min(80vw, 1200px);
+    left: 20%;
+  }
+ }
+
