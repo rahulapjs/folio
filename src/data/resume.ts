@@ -56,6 +56,28 @@ export const resumeData = {
     ],
     projects: [
         {
+            title: "SearchlyAI",
+            subtitle: "Session-Based AI Search Engine using RAG over Documents & Web",
+            tech: [
+                "React (Vite)",
+                "TypeScript",
+                "FastAPI",
+                "FAISS",
+                "Gemini 2.5 Flash",
+                "Google GenAI SDK",
+                "Python"
+            ],
+            description: [
+                "Built a session-based AI search engine enabling semantic question answering over uploaded documents and static web pages",
+                "Implements a complete Retrieval-Augmented Generation (RAG) pipeline including text extraction, chunking, embeddings, and vector similarity search",
+                "Uses FAISS for efficient vector search with configurable chunk size, overlap, and similarity thresholds",
+                "Generates grounded AI responses using Gemini constrained strictly to retrieved context to prevent hallucinations",
+                "Supports PDF and TXT document ingestion along with static web URL ingestion, with graceful handling of JavaScript-rendered pages",
+                "Designed with a stateless FastAPI backend and session-isolated vector stores to support multiple users without a traditional database"
+            ],
+            github: "https://github.com/rahulapjs/SearchlyAI"
+        },
+        {
             title: "SemanticFeed",
             subtitle: "AI-Powered Tech News Aggregation & Deduplication Platform",
             tech: [
