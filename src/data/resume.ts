@@ -56,6 +56,25 @@ export const resumeData = {
     ],
     projects: [
         {
+            title: "MeetlyAI",
+            subtitle: "AI-Powered Meeting Notes, Decisions & Action Items Generator",
+            tech: [
+                "React (Vite)",
+                "TypeScript",
+                "FastAPI",
+                "Gemini 2.5 Flash",
+                "Gemini (Google ADK)",
+                "Python"
+            ],
+            description: [
+                "Built an AI-powered meeting intelligence tool that converts raw meeting transcripts into structured summaries, decisions, and action items",
+                "Uses strict JSON schema enforcement and controlled prompting to generate deterministic, machine-consumable outputs",
+                "Extracts actionable tasks with ownership and priority to support real-world business workflows",
+                "Designed as a stateless FastAPI service without vector databases or persistence, optimized for one-shot analysis"
+            ],
+            github: "https://github.com/rahulapjs/MeetlyAI"
+        },
+        {
             title: "SearchlyAI",
             subtitle: "Session-Based AI Search Engine using RAG over Documents & Web",
             tech: [
@@ -64,7 +83,7 @@ export const resumeData = {
                 "FastAPI",
                 "FAISS",
                 "Gemini 2.5 Flash",
-                "Google GenAI SDK",
+                "Gemini (Google ADK)",
                 "Python"
             ],
             description: [
@@ -86,7 +105,7 @@ export const resumeData = {
                 "Redux",
                 "FastAPI",
                 "PostgreSQL",
-                "Google ADK",
+                "Gemini (Google ADK)",
                 "Gemini 2.5 Flash",
                 "Python"
             ],
