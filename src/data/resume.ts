@@ -56,6 +56,28 @@ export const resumeData = {
     ],
     projects: [
         {
+            title: "AskSQLAI",
+            subtitle: "Schema-Aware Natural Language to SQL Generation Engine",
+            tech: [
+                "React (Vite)",
+                "TypeScript",
+                "FastAPI",
+                "PostgreSQL",
+                "Gemini 2.5 Flash",
+                "Gemini (Google ADK)",
+                "Python"
+            ],
+            description: [
+                "Built a schema-aware Text-to-SQL system that converts natural language questions into safe, executable SQL queries",
+                "Uses live database schema introspection to prevent hallucinated tables or columns during SQL generation",
+                "Enforces strict read-only execution through layered safeguards including prompt constraints, SQL validation, and database-level permissions",
+                "Generates human-readable explanations alongside SQL queries to ensure transparency and trust",
+                "Executes queries against a real PostgreSQL database and returns honest results without fabricating data when tables are empty",
+                "Designed with a clean FastAPI architecture separating schema loading, SQL generation, validation, and execution"
+            ],
+            github: "https://github.com/rahulapjs/AskSQLAI"
+        },
+        {
             title: "MeetlyAI",
             subtitle: "AI-Powered Meeting Notes, Decisions & Action Items Generator",
             tech: [
