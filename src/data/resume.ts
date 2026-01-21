@@ -8,7 +8,7 @@ export const resumeData = {
         role2: "Generative AI Engineer",
         exp: "2",
         bio: "Engineering next-gen interfaces and intelligent systems with full-stack architecture and GenAI. Based in Kerala, India.",
-        name: "rahulapjs",
+        name: "rahulap",
         skills1: "TypeScript",
         skills2: "GenAI",
         skills3: "Angular",
