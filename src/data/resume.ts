@@ -31,7 +31,7 @@ export const resumeData = {
     experience: [
         {
             company: "AOT Technologies",
-            role: "Junior Software Engineer",
+            role: "Software Engineer",
             year: "2024–Present",
             description: [
                 "Worked across frontend + backend for Canadian healthcare platforms.",
