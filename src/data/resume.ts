@@ -30,24 +30,6 @@ export const resumeData = {
     ],
     experience: [
         {
-            title: "TestPilot",
-            subtitle: "Intelligent Bug Detection & Telemetry Chrome Extension",
-            tech: [
-                "JavaScript",
-                "Chrome Extensions API",
-                "Web APIs",
-                "Performance API"
-            ],
-            description: [
-                "Built a production-grade Chrome extension that acts as a silent telemetry layer for modern web applications",
-                "Captures console errors, warnings, failed network requests, and unhandled promise rejections in real time",
-                "Monitors performance metrics such as load time and API latency directly within the browser",
-                "Detects potential bugs, security risks, and performance bottlenecks without requiring a backend service",
-                "Designed for lightweight, client-side monitoring with minimal performance overhead"
-            ],
-            github: "https://github.com/rahulapjs/TestPilot"
-        },
-        {
             company: "AOT Technologies",
             role: "Software Engineer",
             year: "2024–Present",
