@@ -16,8 +16,8 @@ export const resumeData = {
   },
   contact: {
     phone: "7593968596",
-    email: "rahulap.js@gmail.com",
-    linkedin: "https://linkedin.com/in/rahulapjs",
+    email: "itsrahulap@gmail.com",
+    linkedin: "https://linkedin.com/in/itsrahulap",
     github: "https://github.com/zccott",
     cv: "https://drive.google.com/file/d/1eDUmrmCwUmyyexOozgbbiweDDa9wlkNI/view?usp=sharing"
   },
@@ -75,7 +75,7 @@ export const resumeData = {
         "Provides structured output with risk categorization (high, medium, info) and supports clean reporting for security analysis and debugging",
         "Designed as a lightweight Chrome extension with no backend dependency, enabling real-time analysis of live web applications"
       ],
-      github: "https://github.com/rahulapjs/EnvScope"
+      github: "https://github.com/itsrahulap/EnvScope"
     },
     {
       title: "TestPilot",
@@ -93,7 +93,7 @@ export const resumeData = {
         "Detects potential bugs, security risks, and performance bottlenecks without requiring a backend service",
         "Designed for lightweight, client-side monitoring with minimal performance overhead"
       ],
-      github: "https://github.com/rahulapjs/TestPilot"
+      github: "https://github.com/itsrahulap/TestPilot"
     },
     {
       title: "AskSQLAI",
@@ -115,7 +115,7 @@ export const resumeData = {
         "Executes queries against a real PostgreSQL database and returns honest results without fabricating data when tables are empty",
         "Designed with a clean FastAPI architecture separating schema loading, SQL generation, validation, and execution"
       ],
-      github: "https://github.com/rahulapjs/AskSQLAI"
+      github: "https://github.com/itsrahulap/AskSQLAI"
     },
     {
       title: "MeetlyAI",
@@ -134,7 +134,7 @@ export const resumeData = {
         "Extracts actionable tasks with ownership and priority to support real-world business workflows",
         "Designed as a stateless FastAPI service without vector databases or persistence, optimized for one-shot analysis"
       ],
-      github: "https://github.com/rahulapjs/MeetlyAI"
+      github: "https://github.com/itsrahulap/MeetlyAI"
     },
     {
       title: "SearchlyAI",
@@ -156,7 +156,7 @@ export const resumeData = {
         "Supports PDF and TXT document ingestion along with static web URL ingestion, with graceful handling of JavaScript-rendered pages",
         "Designed with a stateless FastAPI backend and session-isolated vector stores to support multiple users without a traditional database"
       ],
-      github: "https://github.com/rahulapjs/SearchlyAI"
+      github: "https://github.com/itsrahulap/SearchlyAI"
     },
     {
       title: "SemanticFeed",
@@ -179,7 +179,7 @@ export const resumeData = {
         "Automates background ingestion via scheduled cron jobs with incremental database updates",
         "Exposes a single feed API returning deduplicated stories with sources, timestamps, and AI summaries"
       ],
-      github: "https://github.com/rahulapjs/SemanticFeed"
+      github: "https://github.com/itsrahulap/SemanticFeed"
     },
     {
       title: "QueryDoc",
@@ -200,7 +200,7 @@ export const resumeData = {
         "Modern single-page UI with API-key-first flow, document upload, and chat interface",
         "Clear separation of vector storage and chunk metadata for accurate context grounding"
       ],
-      github: "https://github.com/rahulapjs/QueryDoc"
+      github: "https://github.com/itsrahulap/QueryDoc"
     },
     {
       title: "AI-Powered SOAP Note Generator",
@@ -213,7 +213,7 @@ export const resumeData = {
         "Generates clinically accurate SOAP notes with safety checks",
         "Fully runnable Kaggle project",
       ],
-      link: "https://www.kaggle.com/code/rahulapjs/multi-agent-medical-intake-soap-note-generator",
+      link: "https://www.kaggle.com/code/itsrahulap/multi-agent-medical-intake-soap-note-generator",
     },
     {
       title: "Readme Creator",
@@ -225,7 +225,7 @@ export const resumeData = {
         "Gemini-powered content optimization using API key",
         "Add, edit, and reorder README sections with real-time updates",
       ],
-      github: "https://github.com/rahulapjs/readmeGenerator",
+      github: "https://github.com/itsrahulap/readmeGenerator",
     },
     {
       title: "Gemini PDF Analyzer",
@@ -238,7 +238,7 @@ export const resumeData = {
         "Supports multiple model selection (Flash / Pro)",
         "Clean UI with real-time feedback",
       ],
-      github: "https://github.com/rahulapjs/ResumeParserAI",
+      github: "https://github.com/itsrahulap/ResumeParserAI",
     },
     {
       title: "EasyDiagno",
@@ -251,7 +251,7 @@ export const resumeData = {
         "Admin module for managing hospitals and approvals",
         "ML-based diagnosis model integrated via Python API",
       ],
-      github: "https://github.com/rahulapjs/EasyDiagno",
+      github: "https://github.com/itsrahulap/EasyDiagno",
     },
     {
       title: "Streamify",
@@ -263,7 +263,7 @@ export const resumeData = {
         "Stream API integration",
         "Screen sharing + image sharing",
       ],
-      github: "https://github.com/rahulapjs/streamify",
+      github: "https://github.com/itsrahulap/streamify",
     },
   ],
   skills: {
